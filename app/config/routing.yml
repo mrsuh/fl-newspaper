@@ -1,0 +1,4 @@
+mrsuh_newspaper:
+    resource: "@MrsuhNewspaperBundle/Resources/config/routing.yml"
+    prefix:   /
+

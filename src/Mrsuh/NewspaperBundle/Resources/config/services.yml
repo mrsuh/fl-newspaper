@@ -1,0 +1,4 @@
+services:
+    model.pay:
+        class: Mrsuh\NewspaperBundle\Model\PayModel
+        arguments: ["@doctrine.orm.entity_manager"]

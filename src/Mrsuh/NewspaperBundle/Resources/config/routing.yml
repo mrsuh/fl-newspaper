@@ -1,0 +1,8 @@
+index:
+    path:     /
+    defaults: { _controller: MrsuhNewspaperBundle:Default:index }
+
+subscribe:
+    path:     /subscribe
+    defaults: { _controller: MrsuhNewspaperBundle:Default:subscribe }
+    methods: [POST]
