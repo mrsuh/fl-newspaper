@@ -4,5 +4,20 @@ index:
 
 subscribe:
     path:     /subscribe
-    defaults: { _controller: MrsuhNewspaperBundle:Default:subscribe }
+    defaults: { _controller: MrsuhNewspaperBundle:Subscribe:subscribe }
+    methods: [POST]
+
+subscribe_callback_success:
+    path:     /subscribe-callback-success
+    defaults: { _controller: MrsuhNewspaperBundle:Subscribe:callbackSuccess }
+    methods: [GET]
+
+subscribe_callback_fail:
+    path:     /subscribe-callback-fail
+    defaults: { _controller: MrsuhNewspaperBundle:Subscribe:callbackFail }
+    methods: [GET]
+
+mail_to_support:
+    path:     /mail-to-support
+    defaults: { _controller: MrsuhNewspaperBundle:Mail:support }
     methods: [POST]

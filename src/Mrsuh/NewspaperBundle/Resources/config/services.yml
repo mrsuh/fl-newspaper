@@ -1,4 +1,20 @@
 services:
-    model.pay:
-        class: Mrsuh\NewspaperBundle\Model\PayModel
-        arguments: ["@doctrine.orm.entity_manager"]
+    service.pay:
+        class: Mrsuh\NewspaperBundle\Service\PayService
+        arguments: ["%pay%", "@router"]
+        lazy: true
+
+    service.mail:
+        class: Mrsuh\NewspaperBundle\Service\MailService
+        arguments: ["@mailer", "%%mailer_user%"]
+        lazy: true
+
+    model.subscribe:
+        class: Mrsuh\NewspaperBundle\Model\SubscribeModel
+        arguments: ["@doctrine.orm.entity_manager", "@service.pay", "@service.mail", "@templating", "%newspaper.file_path%"]
+        lazy: true
+
+    model.support:
+        class: Mrsuh\NewspaperBundle\Model\SupportModel
+        arguments: ["@doctrine.orm.entity_manager", "@service.mail", "@templating", "%%mail.support%"]
+        lazy: true

@@ -3,21 +3,57 @@
 <head>
     <meta charset="utf-8">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 </head>
-<body></body>
+<body>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2" style="height: 500px;background-color: #1a6ecc">
+        <div class="subscribe col-md-10 col-md-offset-1">
+            <input type="text" class="form-control name">
+            <input type="email" class="form-control email">
+            <button type="button"  class="btn btn-primary form-control" id="subscribe">Подписаться</button>
+        </div>
+    </div>
+</div>
+
+</body>
 </html>
 <script>
     $(function(){
-       var subscribe = function(){
-           $.ajax({
-               url: "{{ url('subscribe') }}",
-               method: 'POST',
-               data: ''
-           }).done(function (data) {
-               window.location.href = data['location'];
-           });
-       };
-    }())
+        var subscribe = function(){
+            $.ajax({
+                url: "{{ url('subscribe') }}",
+                method: 'POST',
+                data: ({
+                    name: 1111,
+                    email: $('.subscribe .email').value
+                })
+            }).done(function (data) {
+                console.info(data);
+//                form(data);
+            });
+        };
+        var form = function(data){
+            var form = document.createElement("form");
+            form.setAttribute("method", "post");
+            form.setAttribute("action", data['acs_uri']);
+            form.setAttribute("target", "gateway");
+            var params = data['acs_params'];
+
+            for (var i in params) {
+                if (params.hasOwnProperty(i)) {
+                    var input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = i;
+                    input.value = params[i];
+                    form.appendChild(input);
+                }
+            }
+            document.body.appendChild(form);
+            form.submit();
+            document.body.removeChild(form);
+        };
+
+        $('#subscribe').on('click', subscribe);
+    }());
 </script>

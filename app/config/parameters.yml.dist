@@ -10,10 +10,17 @@ parameters:
     # You should uncomment this if you want use pdo_sqlite
     # database_path: "%kernel.root_dir%/data.db3"
 
-    mailer_transport:  smtp
+    mailer_transport:  mail
     mailer_host:       127.0.0.1
     mailer_user:       ~
     mailer_password:   ~
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+    pay.client_id: ''
+    pay.redirect_uri: ''
+    pay.client_secret: ''
+    pay.wallet: ''
+    pay.price: 1.00
+    mail.support: mail@mail.ru
+    newspaper.file_path: %kernel.root_dir%/../newspaper.pdf
