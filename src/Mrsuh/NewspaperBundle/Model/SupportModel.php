@@ -2,9 +2,8 @@
 
 namespace Mrsuh\NewspaperBundle\Model;
 
-use Doctrine\ORM\EntityManager;
 use Mrsuh\NewspaperBundle\Service\MailService;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Bundle\TwigBundle\TwigEngine;
 
 class SupportModel
 {
@@ -12,9 +11,8 @@ class SupportModel
     private $template;
     private $mail_support;
 
-    public function __construct(EntityManager $em, MailService $service_mail, Template $template, $mail_support)
+    public function __construct(MailService $service_mail, TwigEngine $template, $mail_support)
     {
-        $this->support_subscriber = $em->getRepository('MrsuhNewspaperBundle:Support');
         $this->service_mail = $service_mail;
         $this->template = $template;
         $this->mail_support = $mail_support;
@@ -29,6 +27,6 @@ class SupportModel
             ]
         );
 
-        $this->service_mail->send($this->mail_support, 'Техподдержка FLStory', $mailBody);
+        $this->service_mail->mail($this->mail_support, 'Техподдержка FLStory', $mailBody);
     }
 }

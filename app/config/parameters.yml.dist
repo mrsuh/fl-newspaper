@@ -19,7 +19,6 @@ parameters:
     secret:            ThisTokenIsNotSoSecretChangeIt
     pay.client_id: ''
     pay.redirect_uri: ''
-    pay.client_secret: ''
     pay.wallet: ''
     pay.price: 1.00
     mail.support: mail@mail.ru

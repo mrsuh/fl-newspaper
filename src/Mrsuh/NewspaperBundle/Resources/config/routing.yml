@@ -4,7 +4,7 @@ index:
 
 subscribe:
     path:     /subscribe
-    defaults: { _controller: MrsuhNewspaperBundle:Subscribe:subscribe }
+    defaults: { _controller: MrsuhNewspaperBundle:Api/Subscribe:subscribe }
     methods: [POST]
 
 subscribe_callback_success:
@@ -19,5 +19,5 @@ subscribe_callback_fail:
 
 mail_to_support:
     path:     /mail-to-support
-    defaults: { _controller: MrsuhNewspaperBundle:Mail:support }
+    defaults: { _controller: MrsuhNewspaperBundle:Api/Support:support }
     methods: [POST]

@@ -5,7 +5,7 @@ namespace Mrsuh\NewspaperBundle\Model;
 use Doctrine\ORM\EntityManager;
 use Mrsuh\NewspaperBundle\Service\MailService;
 use Mrsuh\NewspaperBundle\Service\PayService;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Bundle\TwigBundle\TwigEngine;
 
 class SubscribeModel
 {
@@ -15,7 +15,7 @@ class SubscribeModel
     private $template;
     private $newspaper_file_path;
 
-    public function __construct(EntityManager $em, PayService $service_pay, MailService $service_mail, Template $template, $newspaper_file_path)
+    public function __construct(EntityManager $em, PayService $service_pay, MailService $service_mail, TwigEngine $template, $newspaper_file_path)
     {
         $this->repo_subscriber = $em->getRepository('MrsuhNewspaperBundle:Subscriber');
         $this->service_pay = $service_pay;
@@ -31,7 +31,7 @@ class SubscribeModel
         $this->repo_subscriber->create([
             'name' => $name,
             'email' => $email,
-            'pay_token' => $payParams['acs_params']['cps_context_id'],
+            'pay_token' => $payParams->acs_params->cps_context_id,
             'date_time' => new \DateTime(),
             'payed' => false
         ]);
@@ -55,6 +55,6 @@ class SubscribeModel
             ]
         );
 
-        $this->service_mail->send($subscriber->getEmail(), 'Подписка на газету FLStory', $mailBody, $this->newspaper_file_path);
+        $this->service_mail->mail($subscriber->getEmail(), 'Подписка на газету FLStory', $mailBody, $this->newspaper_file_path);
     }
 }

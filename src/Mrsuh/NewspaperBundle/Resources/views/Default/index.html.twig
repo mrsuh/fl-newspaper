@@ -3,15 +3,26 @@
 <head>
     <meta charset="utf-8">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="{{ asset('js/default.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 </head>
 <body>
-<div class="row">
+<div class="container-fluid">
     <div class="col-md-8 col-md-offset-2" style="height: 500px;background-color: #1a6ecc">
-        <div class="subscribe col-md-10 col-md-offset-1">
+        <div class="subscribe col-md-10 col-md-offset-1" style="padding-top: 100px">
             <input type="text" class="form-control name">
             <input type="email" class="form-control email">
-            <button type="button"  class="btn btn-primary form-control" id="subscribe">Подписаться</button>
+            <button type="button" class="btn btn-primary form-control" id="subscribe">Подписаться</button>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="col-md-8 col-md-offset-2" style="height: 500px;background-color: #7A1DE8">
+        <div class="support col-md-10 col-md-offset-1" style="padding-top: 100px">
+            <input type="email" class="form-control email">
+            <textarea  class="form-control body"></textarea>
+            <button type="button" class="btn btn-primary form-control" id="support">Отправить</button>
         </div>
     </div>
 </div>
@@ -19,25 +30,51 @@
 </body>
 </html>
 <script>
-    $(function(){
-        var subscribe = function(){
+    var subscribe = function () {
+
+        var _name = $('.subscribe .name').val();
+        var _email = $('.subscribe .email').val();
+
+        var isValid = function () {
+            var valid = true;
+            if ('undefined' === typeof _name || 0 === _name.length) {
+                valid = false;
+                console.info('wrong name');
+            }
+
+            var regexp = new RegExp(/.+@.+\..+/);
+
+            if ('undefined' === typeof _email || 0 === _email.length || !regexp.test(_email)) {
+                valid = false;
+                console.info('wrong email');
+            }
+
+            return valid;
+        };
+
+        var create = function () {
+
+            if (!isValid()) {
+                return;
+            }
+
             $.ajax({
                 url: "{{ url('subscribe') }}",
                 method: 'POST',
                 data: ({
-                    name: 1111,
-                    email: $('.subscribe .email').value
+                    name: _name,
+                    email: _email
                 })
             }).done(function (data) {
                 console.info(data);
-//                form(data);
+                pay(data);
             });
         };
-        var form = function(data){
+
+        var pay = function (data) {
             var form = document.createElement("form");
             form.setAttribute("method", "post");
             form.setAttribute("action", data['acs_uri']);
-            form.setAttribute("target", "gateway");
             var params = data['acs_params'];
 
             for (var i in params) {
@@ -51,9 +88,53 @@
             }
             document.body.appendChild(form);
             form.submit();
-            document.body.removeChild(form);
         };
 
-        $('#subscribe').on('click', subscribe);
-    }());
+        create();
+    };
+
+    var support = function () {
+        var _body = $('.support .body').val();
+        var _email = $('.support .email').val();
+
+        var isValid = function () {
+            var valid = true;
+            if ('undefined' === typeof _body || 0 === _body.length) {
+                valid = false;
+                console.info('wrong body');
+            }
+
+            var regexp = new RegExp(/.+@.+\..+/);
+
+            if ('undefined' === typeof _email || 0 === _email.length || !regexp.test(_email)) {
+                valid = false;
+                console.info('wrong email');
+            }
+
+            return valid;
+        };
+
+        var create = function () {
+
+            if (!isValid()) {
+                return;
+            }
+
+            $.ajax({
+                url: "{{ url('mail_to_support') }}",
+                method: 'POST',
+                data: ({
+                    body: _body,
+                    email: _email
+                })
+            }).done(function (data) {
+                console.info(data);
+            });
+        };
+
+        create();
+    };
+
+    $('#subscribe').on('click', subscribe);
+    $('#support').on('click', support);
 </script>

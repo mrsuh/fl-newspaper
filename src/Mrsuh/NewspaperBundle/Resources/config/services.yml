@@ -16,5 +16,5 @@ services:
 
     model.support:
         class: Mrsuh\NewspaperBundle\Model\SupportModel
-        arguments: ["@doctrine.orm.entity_manager", "@service.mail", "@templating", "%%mail.support%"]
+        arguments: ["@service.mail", "@templating", "%mail.support%"]
         lazy: true

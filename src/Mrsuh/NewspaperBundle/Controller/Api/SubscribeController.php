@@ -10,13 +10,18 @@ class SubscribeController extends Controller
 {
     public function subscribeAction(Request $request)
     {
-        $data = $request->request;
+        $data = $request->request;//validate
+        $email = $data->get('email');
+        $name = $data->get('name');
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 
-        $data['name'];
-        $data['email'];//validate
+        };
 
-        $params = $this->get('model.subscribe')->subscribe($data['name'], $data['email']);
+        if(empty($name)){
 
+        }
+
+        $params = $this->get('model.subscribe')->subscribe($data->get('name'), $data->get('email'));
 
         return new JsonResponse($params);
     }

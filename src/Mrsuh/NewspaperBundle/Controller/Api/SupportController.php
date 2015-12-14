@@ -12,7 +12,18 @@ class SupportController extends Controller
     {
         $data = $request->request;
 
-        $this->get('model.support')->support($data['email'], $data['body']);
+        $email = $data->get('email');
+        $body = $data->get('body');
+
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+
+        };
+
+        if(empty($body)){
+
+        }
+
+        $this->get('model.support')->support($email, $body);
 
         return new JsonResponse();
     }
