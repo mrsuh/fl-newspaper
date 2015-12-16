@@ -14,7 +14,7 @@
         body{
             margin: 0;
             font-family: "Open Sans", Arial, sans-serif;
-
+            font-size: 14px;
         }
 
         .header {
@@ -38,7 +38,8 @@
         }
 
         .about li{
-            float: left;
+            display: inline-block;
+            font-size: 14px;
             width: 25%;
             margin-bottom: 50px;
             text-align: center;
@@ -51,8 +52,8 @@
 
         ul.about {
             list-style-type: none;
-            height: 600px;
             margin-bottom: 50px;
+            font-size: 0;
         }
 
         h1{
@@ -74,10 +75,9 @@
         }
 
         .price p img{
-            /*display: inline;*/
-            float: right;
+            display: inline-block;
             max-height: 30px;
-            width: 100%;
+            width: 30px;
         }
 
         .price img{
@@ -209,10 +209,11 @@
 
     <div class="price">
         <img src="{{ asset('img/computer.svg') }}">
-        <p>Год за 500 <img src="{{ asset('img/mount.svg') }}"></p>
+        <p>Год за 500 <img class="ruble" src="{{ asset('img/mount.svg') }}"></p>
         <p>+</p>
         <p>Первый выпуск в подарок</p>
     </div>
+
     <hr>
 </div>
 
