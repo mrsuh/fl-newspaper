@@ -3,37 +3,266 @@
 <head>
     <meta charset="utf-8">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="{{ asset('js/default.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <style>
+        @media all and (max-width:1000px){
+            .about {
+                display: none;
+            }
+        }
+
+        body{
+            margin: 0;
+            font-family: "Open Sans", Arial, sans-serif;
+
+        }
+
+        .header {
+            background-color: #B80257;
+            height: 100px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .header p {
+            padding-top: 10px;
+            font-family: "Open Sans", Arial, sans-serif;
+            font-size: 50px;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .content {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .about li{
+            float: left;
+            width: 25%;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .about li img {
+            max-height: 150px;
+            width: 100%;
+        }
+
+        ul.about {
+            list-style-type: none;
+            height: 600px;
+            margin-bottom: 50px;
+        }
+
+        h1{
+            font-size: 36px;
+            text-align: center;
+            line-height: 0;
+            margin-bottom: 20px;
+        }
+
+        p.title{
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 40px;
+        }
+
+        .price p{
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .price p img{
+            /*display: inline;*/
+            float: right;
+            max-height: 30px;
+            width: 100%;
+        }
+
+        .price img{
+            max-height: 300px;
+            width: 100%;
+        }
+
+        .footer {
+            background-color: #B80257;
+            height: 100px;
+            width: 100%;
+        }
+
+        .subscribe-form {
+            padding: 30px;
+            border: 2px solid #e6e6e6;
+            height: 300px;
+        }
+
+        .form h2 {
+            font-size: 36px;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .form {
+            height: 400px;
+            width: 100%;
+        }
+
+        .form input{
+            margin: 20px;
+        }
+
+        .form button{
+            margin: 20px auto;
+        }
+
+        hr{
+            border-color: black;
+            height: 10px;
+        }
+
+        .join {
+            background-color: #F3D0EE;
+            height: 340px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .join h2{
+            padding-top: 40px;
+            margin-bottom: 30px;
+            font-size: 36px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .join p{
+            font-size: 20px;
+        }
+
+    </style>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="col-md-8 col-md-offset-2" style="height: 500px;background-color: #1a6ecc">
-        <div class="subscribe col-md-10 col-md-offset-1" style="padding-top: 100px">
-            <input type="text" class="form-control name">
-            <input type="email" class="form-control email">
-            <button type="button" class="btn btn-primary form-control" id="subscribe">Подписаться</button>
-        </div>
+<div class="header">
+    <div class="content">
+        <p>FLStory</p>
+    </div>
+</div>
+<div class="content">
+
+    <h1>Газета FLStory</h1>
+    <p class="title">газета обо всем, что интересно современной женщине</p>
+
+    <ul class="about">
+        <li>
+            <img src="{{ asset('img/sections/art.svg') }}">
+            <p>Искусство</p>
+        </li>
+        <li>
+            <img src="{{ asset('img/sections/bussnes.svg') }}">
+            <p>Искусство</p>
+        </li>
+        <li>
+            <img src="{{ asset('img/sections/grow.svg') }}">
+            <p>Искусство</p>
+        </li>
+        <li>
+            <img src="{{ asset('img/sections/beauty.svg') }}">
+            <p>Искусство</p>
+        </li>
+        <li>
+            <img src="{{ asset('img/sections/art.svg') }}">
+            <p>Искусство</p>
+        </li>
+        <li>
+            <img src="{{ asset('img/sections/bussnes.svg') }}">
+            <p>Искусство</p>
+        </li>
+        <li>
+            <img src="{{ asset('img/sections/grow.svg') }}">
+            <p>Искусство</p>
+        </li>
+        <li>
+            <img src="{{ asset('img/sections/beauty.svg') }}">
+            <p>Искусство</p>
+        </li>
+        <li>
+            <img src="{{ asset('img/sections/art.svg') }}">
+            <p>Искусство</p>
+        </li>
+        <li>
+            <img src="{{ asset('img/sections/bussnes.svg') }}">
+            <p>Искусство</p>
+        </li>
+        <li>
+            <img src="{{ asset('img/sections/grow.svg') }}">
+            <p>Искусство</p>
+        </li>
+        <li>
+            <img src="{{ asset('img/sections/beauty.svg') }}">
+            <p>Искусство</p>
+        </li>
+    </ul>
+
+    <hr>
+
+    <div class="price">
+        <img src="{{ asset('img/computer.svg') }}">
+        <p>Год за 500 <img src="{{ asset('img/mount.svg') }}"></p>
+        <p>+</p>
+        <p>Первый выпуск в подарок</p>
+    </div>
+    <hr>
+</div>
+
+
+<div class="join">
+    <div class="content">
+        <h2>Присоединиться к проекту</h2>
+        <p>Друзья, присылайте свои истории успеха, информацию о предстоящих событиях в вашем регионе, фото о проделанной работе, фотоочеты ваших путешествий и семинаров, воспоминания о торжественных событиях, интересные истории из жизни ваших  бизнес структур и  поздравления с закрытием статусов, поздравления и фото именинников, интересные заметки и художественные произведения, фото ваших творческих работ и многое другое  в редакцию по адресу : medgora_faberlic@mail.ru </p>
     </div>
 </div>
 
-<div class="container-fluid">
-    <div class="col-md-8 col-md-offset-2" style="height: 500px;background-color: #7A1DE8">
-        <div class="support col-md-10 col-md-offset-1" style="padding-top: 100px">
+<div class="content">
+    <div class="form">
+        <h2>данные подписчика</h2>
+        <div class="subscribe-form">
+            <input type="text" class="form-control name">
             <input type="email" class="form-control email">
-            <textarea  class="form-control body"></textarea>
-            <button type="button" class="btn btn-primary form-control" id="support">Отправить</button>
+            <button type="button" class="btn btn-primary" id="subscribe">Подписаться</button>
         </div>
     </div>
 </div>
+<div class="footer"></div>
+
+{#<div class="container-fluid">#}
+{#<div class="col-md-8 col-md-offset-2" style="height: 500px;background-color: #1a6ecc">#}
+{#<div class="subscribe col-md-10 col-md-offset-1" style="padding-top: 100px">#}
+{#<input type="text" class="form-control name">#}
+{#<input type="email" class="form-control email">#}
+{#<button type="button" class="btn btn-primary form-control" id="subscribe">Подписаться</button>#}
+{#</div>#}
+{#</div>#}
+{#</div>#}
+
+{#<div class="container-fluid">#}
+{#<div class="col-md-8 col-md-offset-2" style="height: 500px;background-color: #7A1DE8">#}
+{#<div class="support col-md-10 col-md-offset-1" style="padding-top: 100px">#}
+{#<input type="email" class="form-control email">#}
+{#<textarea  class="form-control body"></textarea>#}
+{#<button type="button" class="btn btn-primary form-control" id="support">Отправить</button>#}
+{#</div>#}
+{#</div>#}
+{#</div>#}
 
 </body>
 </html>
 <script>
     var subscribe = function () {
 
-        var _name = $('.subscribe .name').val();
-        var _email = $('.subscribe .email').val();
+        var _name = $('.subscribe-form .name').val();
+        var _email = $('.subscribe-form .email').val();
 
         var isValid = function () {
             var valid = true;
