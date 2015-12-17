@@ -41,6 +41,7 @@ twig:
     strict_variables: "%kernel.debug%"
     globals:
         price: "%pay.price%"
+        mail: "%mail.support%"
 
 # Doctrine Configuration
 doctrine:
