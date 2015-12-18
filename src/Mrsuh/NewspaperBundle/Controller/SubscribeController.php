@@ -15,7 +15,7 @@ class SubscribeController extends Controller
         return $this->redirectToRoute('index', ['subscribed' => true]);
     }
 
-    public function callbackFailAction(Request $request)
+    public function callbackFailAction()
     {
         return $this->redirectToRoute('index', ['subscribed' => false]);
     }

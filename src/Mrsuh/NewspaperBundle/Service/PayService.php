@@ -61,8 +61,8 @@ class PayService
         $process_options = array(
             'request_id' => $this->request_id,
             'instance_id' => $this->instance_id,
-            'ext_auth_success_uri' => $this->router->generate('subscribe_callback_success'),
-            'ext_auth_fail_uri' => $this->router->generate('subscribe_callback_fail')
+            'ext_auth_success_uri' => $this->router->generate('subscribe_callback_success', [], Router::ABSOLUTE_URL),
+            'ext_auth_fail_uri' => $this->router->generate('subscribe_callback_fail', [], Router::ABSOLUTE_URL)
         );
 
         $count = 0;

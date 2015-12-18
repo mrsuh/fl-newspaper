@@ -13,8 +13,3 @@ services:
         class: Mrsuh\NewspaperBundle\Model\SubscribeModel
         arguments: ["@doctrine.orm.entity_manager", "@service.pay", "@service.mail", "@templating", "%newspaper.file_path%"]
         lazy: true
-
-    model.support:
-        class: Mrsuh\NewspaperBundle\Model\SupportModel
-        arguments: ["@service.mail", "@templating", "%mail.support%"]
-        lazy: true

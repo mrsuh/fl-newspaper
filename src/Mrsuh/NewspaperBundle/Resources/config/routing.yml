@@ -16,8 +16,3 @@ subscribe_callback_fail:
     path:     /subscribe-callback-fail
     defaults: { _controller: MrsuhNewspaperBundle:Subscribe:callbackFail }
     methods: [GET]
-
-mail_to_support:
-    path:     /mail-to-support
-    defaults: { _controller: MrsuhNewspaperBundle:Api/Support:support }
-    methods: [POST]
