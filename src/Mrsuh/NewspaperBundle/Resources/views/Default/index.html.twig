@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="icon" href="{{ asset('img/icon.png') }}" sizes="32x32" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
@@ -189,6 +190,15 @@
 
         .form .error input {
             border-color: red;
+            margin-bottom: 0px;
+        }
+
+        .err-message {
+            display: none;
+            font-size: 14px;
+            color: red;
+            width: 80%;
+            padding-left: 20%;
         }
 
         footer {
@@ -221,6 +231,9 @@
             ul {
                 display: none;
             }
+        }
+
+        @media all and (max-width: 600px) {
             .form label {
                 display: none;
             }
@@ -232,6 +245,22 @@
             }
             .width {
                 width: 90%;
+            }
+
+            footer .left {
+                display: block;
+                float: none;
+            }
+
+            footer .right {
+                padding-top: 0px;
+                display: block;
+                float: none;
+                text-align: left;
+            }
+
+            footer {
+                height: 150px;
             }
         }
 
@@ -251,7 +280,7 @@
 
     <ul class="width">
         <li>
-            <img src="{{ asset('img/sections/bussnes.svg') }}">
+            <img src="{{ asset('img/sections/business.svg') }}">
 
             <p>Бизнес</p>
         </li>
@@ -319,7 +348,7 @@
 
         <h2>Подписка</h2>
 
-        <h2>на 1 год за 500 <span class="mount">&#8381;</span></h2>
+        <h2>на 1 год за 500 Р</h2>
 
         <h2 class="plus">+</h2>
 
@@ -360,8 +389,6 @@
         <button type="button" class="btn btn-primary" id="subscribe"><span>Подписаться</span><img
                     src="{{ asset('img/loader.gif') }}"></button>
     </div>
-
-
 </content>
 <footer>
     <div class="width">
@@ -395,8 +422,10 @@
             if ('undefined' === typeof _name || 0 === _name.length) {
                 valid = false;
                 $('.form .name').addClass('error');
+                $('.form .name .err-message').show();
             } else {
                 $('.form .name').removeClass('error');
+                $('.form .name .err-message').hide();
             }
 
             var regexp = new RegExp(/.+@.+\..+/);
@@ -404,19 +433,27 @@
             if ('undefined' === typeof _email || 0 === _email.length || !regexp.test(_email)) {
                 valid = false;
                 $('.form .email').addClass('error');
+                $('.form .email .err-message').show();
             } else {
                 $('.form .email').removeClass('error');
+                $('.form .email .err-message').hide();
             }
 
             return valid;
         };
 
-        var remoceClassError = function () {
-            $(this).parent().removeClass('error');
+        var remoceClassErrorEmail = function () {
+            $('.form .email').removeClass('error');
+            $('.form .email .err-message').hide();
         };
 
-        $('.form .name input').on('keypress', remoceClassError);
-        $('.form .email input').on('keypress', remoceClassError);
+        var remoceClassErrorName = function () {
+            $('.form .name').removeClass('error');
+            $('.form .name .err-message').hide();
+        };
+
+        $('.form .name input').on('keypress', remoceClassErrorName);
+        $('.form .email input').on('keypress', remoceClassErrorEmail);
 
         var create = function () {
 

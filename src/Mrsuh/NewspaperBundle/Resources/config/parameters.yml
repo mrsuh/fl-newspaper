@@ -1,6 +1,5 @@
 parameters:
     pay:
         client_id: "%pay.client_id%"
-        redirect_uri: "%pay.redirect_uri%"
         price: "%pay.price%"
         wallet: "%pay.wallet%"
