@@ -2,7 +2,7 @@
 parameters:
     database_host: 127.0.0.1
     database_port: null
-    database_name: newspaper
+    database_name: fl-newspaper
     database_user: ''
     database_password: ''
     mailer_transport: mail
