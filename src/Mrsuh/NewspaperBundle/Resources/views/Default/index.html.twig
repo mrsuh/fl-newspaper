@@ -364,7 +364,7 @@
     <hr class="width">
 
     <div class="subscribe width">
-        <img src="{{ asset('img/computer.svg') }}">
+        <svg src="{{ asset('img/computer.svg') }}">
 
         <h2>Подписка</h2>
 
@@ -454,6 +454,7 @@
             </div>
             <h3>Упс!</h3>
             <h3>При оформлении подписки что то пошло не так...</h3>
+            <h3 class="error"></h3>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">ОК</button>
             </div>
@@ -473,6 +474,7 @@
 
         var _name = $('#name').val();
         var _email = $('#email').val();
+        var _btn =  $('.form button');
 
         var isValid = function () {
             var valid = true;
@@ -499,18 +501,18 @@
             return valid;
         };
 
-        var remoceClassErrorEmail = function () {
+        var removeClassErrorEmail = function () {
             $('.form .email').removeClass('error');
             $('.form .email .err-message').hide();
         };
 
-        var remoceClassErrorName = function () {
+        var removeClassErrorName = function () {
             $('.form .name').removeClass('error');
             $('.form .name .err-message').hide();
         };
 
-        $('.form .name input').on('keypress', remoceClassErrorName);
-        $('.form .email input').on('keypress', remoceClassErrorEmail);
+        $('.form .name input').on('keypress', removeClassErrorName);
+        $('.form .email input').on('keypress', removeClassErrorEmail);
 
         var create = function () {
 
@@ -518,8 +520,8 @@
                 return;
             }
 
-            $('.form button').prop('disabled', true);
-            $('.form button').addClass('load');
+            _btn.prop('disabled', true);
+            _btn.addClass('load');
 
             $.ajax({
                 url: "{{ url('subscribe') }}",
@@ -529,8 +531,16 @@
                     email: _email
                 })
             }).done(function (data) {
-                console.info('done');
-                pay(data);
+
+                if('error' === data['status']){
+                    console.info(data);
+                    $('#subscribe_fail .body.error').append(data['data']);
+                    $('#subscribe_fail').modal();
+                    _btn.prop('disabled', false);
+                    _btn.removeClass('load');
+                } else {
+                    pay(data['data']);
+                }
             });
         };
 
@@ -550,7 +560,6 @@
                 }
             }
             document.body.appendChild(form);
-            console.info('submit');
             form.submit();
         };
 

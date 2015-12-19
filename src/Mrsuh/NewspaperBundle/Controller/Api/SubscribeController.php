@@ -10,18 +10,28 @@ class SubscribeController extends Controller
 {
     public function subscribeAction(Request $request)
     {
-        $data = $request->request;//validate
-        $email = $data->get('email');
-        $name = $data->get('name');
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        try{
+            $data = $request->request;//validate
+            $email = $data->get('email');
+            $name = $data->get('name');
 
-        };
+            switch(true){
+                case !filter_var($email, FILTER_VALIDATE_EMAIL):
+                    $params = ['status' => 'error', 'data' => 'Введен неверный почтовый адрес'];
+                    break;
+                case empty($name):
+                    $params = ['status' => 'error', 'data' => 'Не введено поле ФИО'];
+                    break;
+                default:
+                    $params = [
+                        'status' => 'ok',
+                        'data' => $this->get('model.subscribe')->subscribe($data->get('name'), $data->get('email'))
+                    ];
+            }
 
-        if(empty($name)){
-
+        } catch(\Exception $e){
+            $params = ['status' => 'error', 'data' => $e->getMessage()];
         }
-
-        $params = $this->get('model.subscribe')->subscribe($data->get('name'), $data->get('email'));
 
         return new JsonResponse($params);
     }

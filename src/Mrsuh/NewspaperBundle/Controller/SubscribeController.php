@@ -9,10 +9,14 @@ class SubscribeController extends Controller
 {
     public function callbackSuccessAction(Request $request)
     {
-        $data = $request->query;
-        $this->get('model.subscribe')->callbackSuccess($data->get('cps_context_id'));
+        try{
+            $data = $request->query;
+            $this->get('model.subscribe')->callbackSuccess($data->get('cps_context_id'));
 
-        return $this->redirectToRoute('index', ['subscribe' => true]);
+            return $this->redirectToRoute('index', ['subscribe' => true]);
+        } catch(\Exception $e){
+            return $this->redirectToRoute('index', ['subscribe' => false]);
+        }
     }
 
     public function callbackFailAction()
