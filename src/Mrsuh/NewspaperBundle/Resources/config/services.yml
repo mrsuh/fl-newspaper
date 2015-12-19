@@ -6,15 +6,10 @@ services:
 
     service.mail:
         class: Mrsuh\NewspaperBundle\Service\MailService
-        arguments: ["@mailer", "%%mailer_user%"]
+        arguments: ["@mailer", "%mailer_user%"]
         lazy: true
 
     model.subscribe:
         class: Mrsuh\NewspaperBundle\Model\SubscribeModel
-        arguments: ["@doctrine.orm.entity_manager", "@service.pay", "@service.mail", "@templating", "%newspaper.file_path%"]
-        lazy: true
-
-    model.support:
-        class: Mrsuh\NewspaperBundle\Model\SupportModel
-        arguments: ["@service.mail", "@templating", "%mail.support%"]
+        arguments: ["@doctrine.orm.entity_manager", "@service.pay", "@service.mail", "@templating", "%newspaper.file_path%", "%mail.support%"]
         lazy: true

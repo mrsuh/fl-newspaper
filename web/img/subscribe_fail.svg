@@ -270,4 +270,13 @@
 			C232.942,100.747,232.942,105.747,236.167,105.747L236.167,105.747z"/>
 	</g>
 </g>
+<g>
+	<ellipse fill="#FFFFFF" cx="271.917" cy="273.585" rx="38.75" ry="39.25"/>
+	
+		<line fill="none" stroke="#E2001A" stroke-width="11" stroke-miterlimit="10" x1="298.896" y1="246.806" x2="242.272" y2="303.691"/>
+	<g>
+		
+			<ellipse fill="none" stroke="#E2001A" stroke-width="11" stroke-miterlimit="10" cx="271.333" cy="273.294" rx="38.333" ry="38.373"/>
+	</g>
+</g>
 </svg>

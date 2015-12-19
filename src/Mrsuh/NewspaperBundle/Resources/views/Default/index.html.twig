@@ -2,290 +2,528 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="icon" href="{{ asset('img/icon.png') }}" sizes="32x32" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <title>FL Story</title>
     <style>
-        @media all and (max-width:1000px){
-            .about {
-                display: none;
-            }
-        }
 
-        body{
+        body {
             margin: 0;
+            padding: 0;
+            font-size: 20px;
             font-family: "Open Sans", Arial, sans-serif;
-
         }
 
-        .header {
-            background-color: #B80257;
-            height: 100px;
-            width: 100%;
-            margin-bottom: 40px;
-        }
-
-        .header p {
-            padding-top: 10px;
-            font-family: "Open Sans", Arial, sans-serif;
-            font-size: 50px;
-            color: white;
-            margin-bottom: 40px;
-        }
-
-        .content {
+        .width {
             width: 80%;
             margin: 0 auto;
         }
 
-        .about li{
-            float: left;
+        h1 {
+            font-size: 50px;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 35px;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        hr {
+            border-color: black;
+        }
+
+        header {
+            background-color: #B80257;
+            height: 100px;
+            width: 100%;
+        }
+
+        header p {
+            line-height: 100px;
+            font-size: 50px;
+            color: white;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-top: 40px;
+            padding-left: 0;
+            font-size: 0;
+        }
+
+        li {
+            display: inline-block;
+            font-size: 20px;
             width: 25%;
             margin-bottom: 50px;
             text-align: center;
         }
 
-        .about li img {
+        li img {
             max-height: 150px;
+            height: 100%;
             width: 100%;
         }
 
-        ul.about {
-            list-style-type: none;
-            height: 600px;
-            margin-bottom: 50px;
+        .subscribe {
+            padding-top: 50px;
+            padding-bottom: 40px;
         }
 
-        h1{
-            font-size: 36px;
-            text-align: center;
-            line-height: 0;
+        .subscribe h2 {
+            margin-top: 0;
+        }
+
+        .subscribe h2.plus {
+            margin-bottom: 0;
+        }
+
+        .subscribe img {
+            max-height: 350px;
+            height: 100%;
+            width: 100%;
             margin-bottom: 20px;
         }
 
-        p.title{
-            text-align: center;
-            font-size: 30px;
-            margin-bottom: 40px;
-        }
-
-        .price p{
-            text-align: center;
-            font-size: 30px;
-        }
-
-        .price p img{
-            /*display: inline;*/
-            float: right;
-            max-height: 30px;
+        .join {
+            background-color: #F3D0EE;
             width: 100%;
+            padding-top: 20px;
+            padding-bottom: 40px;
         }
 
-        .price img{
-            max-height: 300px;
-            width: 100%;
+        .join h2 {
+            text-transform: uppercase;
         }
 
-        .footer {
+        .join p {
+            line-height: 30px;
+            font-size: 20px;
+            text-align: left
+        }
+
+        .join a {
+            font-style: italic;
+        }
+
+        .form {
+            width: 60%;
+            padding-top: 20px;
+            padding-bottom: 50px;
+            margin-right: auto;
+            margin-left: auto;
+            font-size: 0;
+        }
+
+        .form h2 {
+            text-transform: uppercase;
+            padding-bottom: 20px;
+        }
+
+        .form button {
+            display: block;
+            font-size: 20px;
+            text-align: center;
+            padding-left: 0;
+            padding-right: 0;
+            margin-top: 40px;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 300px;
+            width: 80%;
+        }
+
+        .form input {
+            font-size: 20px;
+            width: 80%;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .form label {
+            font-size: 20px;
+            padding-top: 10px;
+            width: 20%;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #B80257;
+            border-color: #B80257;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover,
+        .btn-primary:active:hover,
+        .btn-primary:active,
+        .btn-primary:active:focus,
+        .btn-primary:disabled:focus,
+        .btn-primary:disabled,
+        .btn-primary:disabled:hover,
+        .btn-primary:focus {
+            background-color: #7A0257;
+            border-color: #7A0257;
+            color: #ffffff;
+        }
+
+        .btn-primary img {
+            display: none;
+        }
+
+        .btn-primary.load {
+            background-color: #7A0257;
+            border-color: #7A0257;
+            color: #ffffff;
+        }
+
+        .btn-primary.load span {
+            display: none;
+        }
+
+        .btn-primary.load img {
+            display: inline;
+        }
+
+        .form .error input {
+            border-color: red;
+            margin-bottom: 0px;
+        }
+
+        .err-message {
+            display: none;
+            font-size: 14px;
+            color: red;
+            width: 80%;
+            padding-left: 20%;
+        }
+
+        footer {
             background-color: #B80257;
             height: 100px;
             width: 100%;
         }
 
-        .subscribe-form {
-            padding: 30px;
-            border: 2px solid #e6e6e6;
-            height: 300px;
+        footer p {
+            font-size: 14px;
+            color: #ffffff;
+            line-height: 10px;
         }
 
-        .form h2 {
-            font-size: 36px;
+        footer .left {
+            padding-top: 10px;
+            display: inline;
+            float: left;
+            text-align: left;
+        }
+
+        footer .right {
+            padding-top: 10px;
+            display: inline-block;
+            float: right;
+            text-align: right;
+        }
+
+        .modal img {
+            display: block;
+            height: 200px;
+            margin: 0 auto;
+            width: 200px;
+        }
+
+        .modal h3{
             text-align: center;
-            text-transform: uppercase;
-            margin-bottom: 30px;
+            margin-bottom: 5px;
+            margin-top: 5px;
         }
 
-        .form {
-            height: 400px;
-            width: 100%;
+        .modal .btn {
+            display: block;
+            width: 60%;
+            margin: 0 auto;
         }
 
-        .form input{
-            margin: 20px;
+        @media all and (max-width: 1000px) {
+            ul {
+                display: none;
+            }
         }
 
-        .form button{
-            margin: 20px auto;
-        }
+        @media all and (max-width: 600px) {
+            .form label {
+                display: none;
+            }
+            .form{
+                width: 90%;
+            }
+            .form input {
+                width: 100%;
+            }
+            .width {
+                width: 90%;
+            }
 
-        hr{
-            border-color: black;
-            height: 10px;
-        }
+            footer .left {
+                display: block;
+                float: none;
+            }
 
-        .join {
-            background-color: #F3D0EE;
-            height: 340px;
-            width: 100%;
-            margin-bottom: 20px;
-        }
+            footer .right {
+                padding-top: 0px;
+                display: block;
+                float: none;
+                text-align: left;
+            }
 
-        .join h2{
-            padding-top: 40px;
-            margin-bottom: 30px;
-            font-size: 36px;
-            text-align: center;
-            text-transform: uppercase;
-        }
-
-        .join p{
-            font-size: 20px;
+            footer {
+                height: 150px;
+            }
         }
 
     </style>
 </head>
 <body>
-<div class="header">
-    <div class="content">
-        <p>FLStory</p>
+<header>
+    <div class="width">
+        <p>FL Story</p>
     </div>
-</div>
-<div class="content">
+</header>
+<content>
 
-    <h1>Газета FLStory</h1>
-    <p class="title">газета обо всем, что интересно современной женщине</p>
+    <h1>FL Story</h1>
 
-    <ul class="about">
+    <h2>газета обо всем, что интересно современной женщине</h2>
+
+    <ul class="width">
         <li>
-            <img src="{{ asset('img/sections/art.svg') }}">
-            <p>Искусство</p>
-        </li>
-        <li>
-            <img src="{{ asset('img/sections/bussnes.svg') }}">
-            <p>Искусство</p>
-        </li>
-        <li>
-            <img src="{{ asset('img/sections/grow.svg') }}">
-            <p>Искусство</p>
-        </li>
-        <li>
-            <img src="{{ asset('img/sections/beauty.svg') }}">
-            <p>Искусство</p>
+            <img src="{{ asset('img/sections/business.svg') }}">
+
+            <p>Бизнес</p>
         </li>
         <li>
             <img src="{{ asset('img/sections/art.svg') }}">
-            <p>Искусство</p>
+
+            <p>Культура</p>
         </li>
         <li>
-            <img src="{{ asset('img/sections/bussnes.svg') }}">
-            <p>Искусство</p>
+            <img src="{{ asset('img/sections/family.svg') }}">
+
+            <p>Семья</p>
         </li>
         <li>
-            <img src="{{ asset('img/sections/grow.svg') }}">
-            <p>Искусство</p>
+            <img src="{{ asset('img/sections/history.svg') }}">
+
+            <p>История</p>
+        </li>
+        <li>
+            <img src="{{ asset('img/sections/sport.svg') }}">
+
+            <p>Спорт</p>
+        </li>
+        <li>
+            <img src="{{ asset('img/sections/traveling.svg') }}">
+
+            <p>Путешествия</p>
+        </li>
+        <li>
+            <img src="{{ asset('img/sections/style.svg') }}">
+
+            <p>Мода</p>
         </li>
         <li>
             <img src="{{ asset('img/sections/beauty.svg') }}">
-            <p>Искусство</p>
-        </li>
-        <li>
-            <img src="{{ asset('img/sections/art.svg') }}">
-            <p>Искусство</p>
-        </li>
-        <li>
-            <img src="{{ asset('img/sections/bussnes.svg') }}">
-            <p>Искусство</p>
+
+            <p>Красота</p>
         </li>
         <li>
             <img src="{{ asset('img/sections/grow.svg') }}">
-            <p>Искусство</p>
+
+            <p>Личный рост</p>
         </li>
         <li>
-            <img src="{{ asset('img/sections/beauty.svg') }}">
-            <p>Искусство</p>
+            <img src="{{ asset('img/sections/actions.svg') }}">
+
+            <p>Значительные события</p>
+        </li>
+        <li>
+            <img src="{{ asset('img/sections/meet.svg') }}">
+
+            <p>Встречи</p>
+        </li>
+        <li>
+            <img src="{{ asset('img/sections/handmade.svg') }}">
+
+            <p>Рукоделие</p>
         </li>
     </ul>
 
-    <hr>
+    <hr class="width">
 
-    <div class="price">
+    <div class="subscribe width">
         <img src="{{ asset('img/computer.svg') }}">
-        <p>Год за 500 <img src="{{ asset('img/mount.svg') }}"></p>
-        <p>+</p>
-        <p>Первый выпуск в подарок</p>
+
+        <h2>Подписка</h2>
+
+        <h2>на 1 год за 500 Р</h2>
+
+        <h2 class="plus">+</h2>
+
+        <h2>Первый эксклюзивный</h2>
+
+        <h2>выпуск в подарок!</h2>
     </div>
-    <hr>
-</div>
 
+    <div class="join">
+        <div class="width">
+            <h2>Присоединиться к проекту</h2>
 
-<div class="join">
-    <div class="content">
-        <h2>Присоединиться к проекту</h2>
-        <p>Друзья, присылайте свои истории успеха, информацию о предстоящих событиях в вашем регионе, фото о проделанной работе, фотоочеты ваших путешествий и семинаров, воспоминания о торжественных событиях, интересные истории из жизни ваших  бизнес структур и  поздравления с закрытием статусов, поздравления и фото именинников, интересные заметки и художественные произведения, фото ваших творческих работ и многое другое  в редакцию по адресу : medgora_faberlic@mail.ru </p>
+            <p>Друзья, присылайте свои истории успеха, информацию о предстоящих событиях в вашем регионе,
+                фото о проделанной работе, фотоочеты ваших путешествий и семинаров, воспоминания о
+                торжественных событиях, интересные истории из жизни ваших бизнес структур и
+                поздравления с закрытием статусов, поздравления и фото именинников, интересные
+                заметки и художественные произведения, фото ваших творческих работ и многое другое
+                в редакцию по адресу: {{ mail }}</p>
+        </div>
     </div>
-</div>
 
-<div class="content">
     <div class="form">
+
         <h2>данные подписчика</h2>
-        <div class="subscribe-form">
-            <input type="text" class="form-control name">
-            <input type="email" class="form-control email">
-            <button type="button" class="btn btn-primary" id="subscribe">Подписаться</button>
+
+        <div class="name">
+            <label for="name">ФИО</label>
+            <input type="text" class="form-control" id="name" placeholder="Иванова Мария Ивановна">
+            <div class="err-message">Поле не может быть пустым</div>
+        </div>
+
+        <div class="email">
+            <label for="email">Почта</label>
+            <input type="email" id="email" class="form-control" placeholder="mail@mail.ru">
+            <div class="err-message">Поле должно содержать адрес электронной почты</div>
+        </div>
+
+        <button type="button" class="btn btn-primary" id="subscribe"><span>Подписаться</span><img
+                    src="{{ asset('img/loader.gif') }}"></button>
+    </div>
+</content>
+<footer>
+    <div class="width">
+        <div class="left">
+            <p>Газета "FL Story, Фаберлик Северо-запад"</p>
+
+            <p>Учредитель: Павлова Ю.А.</p>
+        </div>
+        <div class="right">
+            <p>186350 г. Медвежьегорск</p>
+
+            <p>ул Труда, дом 1</p>
+
+            <p>тел. 8-960-212-78-69</p>
+
+            <p>{{ mail }}</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+
+<div class="modal fade" id="subscribe_success" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="{{ asset('img/subscribe_success.svg') }}">
+            </div>
+            <h3>Поздравляем!</h3>
+            <h3>Вы успешно оформили подписку</h3>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">ОК</button>
+            </div>
         </div>
     </div>
 </div>
-<div class="footer"></div>
 
-{#<div class="container-fluid">#}
-{#<div class="col-md-8 col-md-offset-2" style="height: 500px;background-color: #1a6ecc">#}
-{#<div class="subscribe col-md-10 col-md-offset-1" style="padding-top: 100px">#}
-{#<input type="text" class="form-control name">#}
-{#<input type="email" class="form-control email">#}
-{#<button type="button" class="btn btn-primary form-control" id="subscribe">Подписаться</button>#}
-{#</div>#}
-{#</div>#}
-{#</div>#}
+<div class="modal fade" id="subscribe_fail" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="{{ asset('img/subscribe_fail.svg') }}">
+            </div>
+            <h3>Упс!</h3>
+            <h3>При оформлении подписки что то пошло не так...</h3>
+            <h3 class="error"></h3>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">ОК</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-{#<div class="container-fluid">#}
-{#<div class="col-md-8 col-md-offset-2" style="height: 500px;background-color: #7A1DE8">#}
-{#<div class="support col-md-10 col-md-offset-1" style="padding-top: 100px">#}
-{#<input type="email" class="form-control email">#}
-{#<textarea  class="form-control body"></textarea>#}
-{#<button type="button" class="btn btn-primary form-control" id="support">Отправить</button>#}
-{#</div>#}
-{#</div>#}
-{#</div>#}
-
-</body>
 </html>
 <script>
+    {% if subscribe is not null and subscribe == true %}
+    $('#subscribe_success').modal();
+    {% elseif subscribe is not null and subscribe == false %}
+    $('#subscribe_fail').modal();
+    {% endif %}
+
     var subscribe = function () {
 
-        var _name = $('.subscribe-form .name').val();
-        var _email = $('.subscribe-form .email').val();
+        var _name = $('#name').val();
+        var _email = $('#email').val();
+        var _btn =  $('.form button');
 
         var isValid = function () {
             var valid = true;
             if ('undefined' === typeof _name || 0 === _name.length) {
                 valid = false;
-                console.info('wrong name');
+                $('.form .name').addClass('error');
+                $('.form .name .err-message').show();
+            } else {
+                $('.form .name').removeClass('error');
+                $('.form .name .err-message').hide();
             }
 
             var regexp = new RegExp(/.+@.+\..+/);
 
             if ('undefined' === typeof _email || 0 === _email.length || !regexp.test(_email)) {
                 valid = false;
-                console.info('wrong email');
+                $('.form .email').addClass('error');
+                $('.form .email .err-message').show();
+            } else {
+                $('.form .email').removeClass('error');
+                $('.form .email .err-message').hide();
             }
 
             return valid;
         };
+
+        var removeClassErrorEmail = function () {
+            $('.form .email').removeClass('error');
+            $('.form .email .err-message').hide();
+        };
+
+        var removeClassErrorName = function () {
+            $('.form .name').removeClass('error');
+            $('.form .name .err-message').hide();
+        };
+
+        $('.form .name input').on('keypress', removeClassErrorName);
+        $('.form .email input').on('keypress', removeClassErrorEmail);
 
         var create = function () {
 
             if (!isValid()) {
                 return;
             }
+
+            _btn.prop('disabled', true);
+            _btn.addClass('load');
 
             $.ajax({
                 url: "{{ url('subscribe') }}",
@@ -295,8 +533,16 @@
                     email: _email
                 })
             }).done(function (data) {
-                console.info(data);
-                pay(data);
+
+                if('error' === data['status']){
+                    console.info(data);
+                    $('#subscribe_fail .body.error').append(data['data']);
+                    $('#subscribe_fail').modal();
+                    _btn.prop('disabled', false);
+                    _btn.removeClass('load');
+                } else {
+                    pay(data['data']);
+                }
             });
         };
 
@@ -321,49 +567,5 @@
 
         create();
     };
-
-    var support = function () {
-        var _body = $('.support .body').val();
-        var _email = $('.support .email').val();
-
-        var isValid = function () {
-            var valid = true;
-            if ('undefined' === typeof _body || 0 === _body.length) {
-                valid = false;
-                console.info('wrong body');
-            }
-
-            var regexp = new RegExp(/.+@.+\..+/);
-
-            if ('undefined' === typeof _email || 0 === _email.length || !regexp.test(_email)) {
-                valid = false;
-                console.info('wrong email');
-            }
-
-            return valid;
-        };
-
-        var create = function () {
-
-            if (!isValid()) {
-                return;
-            }
-
-            $.ajax({
-                url: "{{ url('mail_to_support') }}",
-                method: 'POST',
-                data: ({
-                    body: _body,
-                    email: _email
-                })
-            }).done(function (data) {
-                console.info(data);
-            });
-        };
-
-        create();
-    };
-
     $('#subscribe').on('click', subscribe);
-    $('#support').on('click', support);
 </script>
