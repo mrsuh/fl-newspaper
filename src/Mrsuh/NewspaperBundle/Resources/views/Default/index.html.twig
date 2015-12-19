@@ -5,7 +5,9 @@
     <link rel="icon" href="{{ asset('img/icon.png') }}" sizes="32x32" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <title>FL Story</title>
     <style>
@@ -23,7 +25,8 @@
         }
 
         h1 {
-            font-size: 50px;
+            text-transform: uppercase;
+            font-size: 35px;
             text-align: center;
             font-weight: 400;
         }
@@ -69,6 +72,14 @@
             max-height: 150px;
             height: 100%;
             width: 100%;
+        }
+
+        ul a:link {
+            color: inherit;
+        }
+
+        ul a:hover {
+            text-decoration: none;
         }
 
         .subscribe {
@@ -237,7 +248,7 @@
             width: 200px;
         }
 
-        .modal h3{
+        .modal h3 {
             text-align: center;
             margin-bottom: 5px;
             margin-top: 5px;
@@ -259,12 +270,15 @@
             .form label {
                 display: none;
             }
-            .form{
+
+            .form {
                 width: 90%;
             }
+
             .form input {
                 width: 100%;
             }
+
             .width {
                 width: 90%;
             }
@@ -296,71 +310,60 @@
 </header>
 <content>
 
-    <h1>FL Story</h1>
-
-    <h2>газета обо всем, что интересно современной женщине</h2>
+    <h1>Подписка на газету FL Story</h1>
+    <h2>газета обо всем, что интересно современной женщине:</h2>
 
     <ul class="width">
-        <li>
-            <img src="{{ asset('img/sections/business.svg') }}">
-
-            <p>Бизнес</p>
-        </li>
-        <li>
-            <img src="{{ asset('img/sections/art.svg') }}">
-
-            <p>Культура</p>
-        </li>
-        <li>
-            <img src="{{ asset('img/sections/family.svg') }}">
-
-            <p>Семья</p>
-        </li>
-        <li>
-            <img src="{{ asset('img/sections/history.svg') }}">
-
-            <p>История</p>
-        </li>
-        <li>
-            <img src="{{ asset('img/sections/sport.svg') }}">
-
-            <p>Спорт</p>
-        </li>
-        <li>
-            <img src="{{ asset('img/sections/traveling.svg') }}">
-
-            <p>Путешествия</p>
-        </li>
-        <li>
-            <img src="{{ asset('img/sections/style.svg') }}">
-
-            <p>Мода</p>
-        </li>
-        <li>
-            <img src="{{ asset('img/sections/beauty.svg') }}">
-
-            <p>Красота</p>
-        </li>
-        <li>
-            <img src="{{ asset('img/sections/grow.svg') }}">
-
-            <p>Личный рост</p>
-        </li>
-        <li>
-            <img src="{{ asset('img/sections/actions.svg') }}">
-
-            <p>Значительные события</p>
-        </li>
-        <li>
-            <img src="{{ asset('img/sections/meet.svg') }}">
-
-            <p>Встречи</p>
-        </li>
-        <li>
-            <img src="{{ asset('img/sections/handmade.svg') }}">
-
-            <p>Рукоделие</p>
-        </li>
+        <a href="#subscribe">
+            <li>
+                <img src="{{ asset('img/sections/business.svg') }}">
+                <p>Бизнес</p>
+            </li>
+            <li>
+                <img src="{{ asset('img/sections/art.svg') }}">
+                <p>Культура</p>
+            </li>
+            <li>
+                <img src="{{ asset('img/sections/family.svg') }}">
+                <p>Семья</p>
+            </li>
+            <li>
+                <img src="{{ asset('img/sections/history.svg') }}">
+                <p>История</p>
+            </li>
+            <li>
+                <img src="{{ asset('img/sections/sport.svg') }}">
+                <p>Спорт</p>
+            </li>
+            <li>
+                <img src="{{ asset('img/sections/traveling.svg') }}">
+                <p>Путешествия</p>
+            </li>
+            <li>
+                <img src="{{ asset('img/sections/style.svg') }}">
+                <p>Мода</p>
+            </li>
+            <li>
+                <img src="{{ asset('img/sections/beauty.svg') }}">
+                <p>Красота</p>
+            </li>
+            <li>
+                <img src="{{ asset('img/sections/grow.svg') }}">
+                <p>Личный рост</p>
+            </li>
+            <li>
+                <img src="{{ asset('img/sections/actions.svg') }}">
+                <p>Значительные события</p>
+            </li>
+            <li>
+                <img src="{{ asset('img/sections/meet.svg') }}">
+                <p>Встречи</p>
+            </li>
+            <li>
+                <img src="{{ asset('img/sections/handmade.svg') }}">
+                <p>Рукоделие</p>
+            </li>
+        </a>
     </ul>
 
     <hr class="width">
@@ -416,23 +419,19 @@
     <div class="width">
         <div class="left">
             <p>Газета "FL Story, Фаберлик Северо-запад"</p>
-
+            <p>Новый выпуск каждые 2 месяца</p>
             <p>Учредитель: Павлова Ю.А.</p>
         </div>
         <div class="right">
             <p>186350 г. Медвежьегорск</p>
-
-            <p>ул Труда, дом 1</p>
-
+            <p>ул. Труда, д. 1</p>
             <p>тел. 8-960-212-78-69</p>
-
             <p>{{ mail }}</p>
         </div>
     </div>
 </footer>
 
 </body>
-
 <div class="modal fade" id="subscribe_success" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -441,6 +440,7 @@
             </div>
             <h3>Поздравляем!</h3>
             <h3>Вы успешно оформили подписку</h3>
+            <h3>На вашу почту выслан первый эксклюзивный выпуск газеты</h3>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">ОК</button>
             </div>
@@ -472,45 +472,56 @@
     $('#subscribe_fail').modal();
     {% endif %}
 
+    $('a[href^="#"]').click(function () {
+        elementClick = $(this).attr("href");
+        destination = $(elementClick).offset().top;
+        jQuery("html:not(:animated),body:not(:animated)").animate({scrollTop: destination}, 1200);
+        return false;
+    });
+
     var subscribe = function () {
 
         var _name = $('#name').val();
         var _email = $('#email').val();
-        var _btn =  $('.form button');
+        var _btn = $('.form button');
+        var _form_name = $('.form .name');
+        var _form_email = $('.form .email');
+        var _form_name_err= $('.form .name .err-message');
+        var _form_email_err = $('.form .email .err-message');
 
         var isValid = function () {
             var valid = true;
             if ('undefined' === typeof _name || 0 === _name.length) {
                 valid = false;
-                $('.form .name').addClass('error');
-                $('.form .name .err-message').show();
+                _form_name.addClass('error');
+                _form_name_err.show();
             } else {
-                $('.form .name').removeClass('error');
-                $('.form .name .err-message').hide();
+                _form_name.removeClass('error');
+                _form_name_err.hide();
             }
 
             var regexp = new RegExp(/.+@.+\..+/);
 
             if ('undefined' === typeof _email || 0 === _email.length || !regexp.test(_email)) {
                 valid = false;
-                $('.form .email').addClass('error');
-                $('.form .email .err-message').show();
+                _form_email.addClass('error');
+                _form_email_err.show();
             } else {
-                $('.form .email').removeClass('error');
-                $('.form .email .err-message').hide();
+                _form_email.removeClass('error');
+                _form_email_err.hide();
             }
 
             return valid;
         };
 
         var removeClassErrorEmail = function () {
-            $('.form .email').removeClass('error');
-            $('.form .email .err-message').hide();
+            _form_email.removeClass('error');
+            _form_email_err.hide();
         };
 
         var removeClassErrorName = function () {
-            $('.form .name').removeClass('error');
-            $('.form .name .err-message').hide();
+            _form_name.removeClass('error');
+            _form_name_err.hide();
         };
 
         $('.form .name input').on('keypress', removeClassErrorName);
@@ -534,7 +545,7 @@
                 })
             }).done(function (data) {
 
-                if('error' === data['status']){
+                if ('error' === data['status']) {
                     console.info(data);
                     $('#subscribe_fail .body.error').append(data['data']);
                     $('#subscribe_fail').modal();
