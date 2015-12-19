@@ -12,11 +12,11 @@ class SubscribeController extends Controller
         $data = $request->query;
         $this->get('model.subscribe')->callbackSuccess($data->get('cps_context_id'));
 
-        return $this->redirectToRoute('index', ['subscribed' => true]);
+        return $this->redirectToRoute('index', ['subscribe' => true]);
     }
 
     public function callbackFailAction()
     {
-        return $this->redirectToRoute('index', ['subscribed' => false]);
+        return $this->redirectToRoute('index', ['subscribe' => false]);
     }
 }

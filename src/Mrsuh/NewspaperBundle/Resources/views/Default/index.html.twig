@@ -5,6 +5,7 @@
     <link rel="icon" href="{{ asset('img/icon.png') }}" sizes="32x32" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <title>FL Story</title>
     <style>
@@ -227,6 +228,25 @@
             text-align: right;
         }
 
+        .modal img {
+            display: block;
+            height: 200px;
+            margin: 0 auto;
+            width: 200px;
+        }
+
+        .modal h3{
+            text-align: center;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        .modal .btn {
+            display: block;
+            width: 60%;
+            margin: 0 auto;
+        }
+
         @media all and (max-width: 1000px) {
             ul {
                 display: none;
@@ -366,7 +386,7 @@
                 торжественных событиях, интересные истории из жизни ваших бизнес структур и
                 поздравления с закрытием статусов, поздравления и фото именинников, интересные
                 заметки и художественные произведения, фото ваших творческих работ и многое другое
-                в редакцию по адресу <a href="mailto:{{ mail }}">{{ mail }}</a></p>
+                в редакцию по адресу: {{ mail }}</p>
         </div>
     </div>
 
@@ -404,14 +424,51 @@
 
             <p>тел. 8-960-212-78-69</p>
 
-            <p><a href="mailto:{{ mail }}">{{ mail }}</a></p>
+            <p>{{ mail }}</p>
         </div>
     </div>
 </footer>
 
 </body>
+
+<div class="modal fade" id="subscribe_success" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="{{ asset('img/subscribe_success.svg') }}">
+            </div>
+            <h3>Поздравляем!</h3>
+            <h3>Вы успешно оформили подписку</h3>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">ОК</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="subscribe_fail" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="{{ asset('img/subscribe_fail.svg') }}">
+            </div>
+            <h3>Упс!</h3>
+            <h3>При оформлении подписки что то пошло не так...</h3>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">ОК</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </html>
 <script>
+    {% if subscribe is not null and subscribe == true %}
+    $('#subscribe_success').modal();
+    {% elseif subscribe is not null and subscribe == false %}
+    $('#subscribe_fail').modal();
+    {% endif %}
+
     var subscribe = function () {
 
         var _name = $('#name').val();

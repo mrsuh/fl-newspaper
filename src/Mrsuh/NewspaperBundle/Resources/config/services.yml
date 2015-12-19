@@ -11,5 +11,5 @@ services:
 
     model.subscribe:
         class: Mrsuh\NewspaperBundle\Model\SubscribeModel
-        arguments: ["@doctrine.orm.entity_manager", "@service.pay", "@service.mail", "@templating", "%newspaper.file_path%", "%mailer_user%"]
+        arguments: ["@doctrine.orm.entity_manager", "@service.pay", "@service.mail", "@templating", "%newspaper.file_path%", "%mail.support%"]
         lazy: true

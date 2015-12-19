@@ -53,7 +53,7 @@ class SubscribeModel
 
         $mailBody = $this->template->render('MrsuhNewspaperBundle:Mail:subscriber.html.twig');
 
-        $this->service_mail->mail($this->mailer_user, 'Подписка на газету FL Story', $mailBody, $this->newspaper_file_path);
+        $this->service_mail->mail($subscriber->getEmail(), 'Подписка на газету FL Story', $mailBody, $this->newspaper_file_path);
 
         $mailBody = $this->template->render('MrsuhNewspaperBundle:Mail:editor.html.twig',
             [
