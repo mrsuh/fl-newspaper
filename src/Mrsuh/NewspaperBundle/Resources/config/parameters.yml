@@ -3,3 +3,7 @@ parameters:
         client_id: "%pay.client_id%"
         price: "%pay.price%"
         wallet: "%pay.wallet%"
+
+    newspaper.files:
+        file_1: "%newspaper.file_path%"
+        file_2: "%newspaper.file_path2%"

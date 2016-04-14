@@ -13,7 +13,7 @@ class MailService
         $this->mailer_user = $mailer_user;
     }
 
-    public function mail($to, $subject, $body, $attach = null)
+    public function mail($to, $subject, $body, array $attach = [])
     {
         $mailer = $this->mailer;
         $message = $mailer->createMessage()
@@ -22,8 +22,10 @@ class MailService
             ->setFrom($this->mailer_user)
             ->setBody($body, 'text/html');
 
-        if($attach){
-            $message->attach(\Swift_Attachment::fromPath($attach));
+        if(!empty($attach)){
+            foreach($attach as $a){
+                $message->attach(\Swift_Attachment::fromPath($a));
+            }
         }
 
         $mailer->send($message);

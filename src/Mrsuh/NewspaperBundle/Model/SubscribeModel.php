@@ -13,16 +13,16 @@ class SubscribeModel
     private $service_pay;
     private $service_mail;
     private $template;
-    private $newspaper_file_path;
+    private $newspaper_files_path;
     private $mailer_user;
 
-    public function __construct(EntityManager $em, PayService $service_pay, MailService $service_mail, TwigEngine $template, $newspaper_file_path, $mailer_user)
+    public function __construct(EntityManager $em, PayService $service_pay, MailService $service_mail, TwigEngine $template, array $newspaper_files_path, $mailer_user)
     {
         $this->repo_subscriber = $em->getRepository('MrsuhNewspaperBundle:Subscriber');
         $this->service_pay = $service_pay;
         $this->service_mail = $service_mail;
         $this->template = $template;
-        $this->newspaper_file_path = $newspaper_file_path;
+        $this->newspaper_files_path = $newspaper_files_path;
         $this->mailer_user = $mailer_user;
     }
 
@@ -53,7 +53,7 @@ class SubscribeModel
 
         $mailBody = $this->template->render('MrsuhNewspaperBundle:Mail:subscriber.html.twig');
 
-        $this->service_mail->mail($subscriber->getEmail(), 'Подписка на газету FL Story', $mailBody, $this->newspaper_file_path);
+        $this->service_mail->mail($subscriber->getEmail(), 'Подписка на газету FL Story', $mailBody, $this->newspaper_files_path);
 
         $mailBody = $this->template->render('MrsuhNewspaperBundle:Mail:editor.html.twig',
             [
