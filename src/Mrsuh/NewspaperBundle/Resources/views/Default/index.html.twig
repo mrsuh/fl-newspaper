@@ -15,7 +15,7 @@
         body {
             margin: 0;
             padding: 0;
-            font-size: 20px;
+            font-size: 16px;
             font-family: "Open Sans", Arial, sans-serif;
         }
 
@@ -26,13 +26,19 @@
 
         h1 {
             text-transform: uppercase;
-            font-size: 35px;
+            font-size: 30px;
             text-align: center;
             font-weight: 400;
         }
 
         h2 {
-            font-size: 35px;
+            font-size: 25px;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        h3 {
+            font-size: 20px;
             text-align: center;
             font-weight: 400;
         }
@@ -47,10 +53,11 @@
             width: 100%;
         }
 
-        header p {
-            line-height: 100px;
-            font-size: 50px;
-            color: white;
+        header img {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            height: 100px;
+            width: 135px;
         }
 
         ul {
@@ -62,16 +69,22 @@
 
         li {
             display: inline-block;
-            font-size: 20px;
+            font-size: 16px;
             width: 25%;
             margin-bottom: 50px;
             text-align: center;
+            font-weight: 800;
         }
 
         li img {
             max-height: 150px;
             height: 100%;
             width: 100%;
+        }
+
+        li h3{
+            margin-top: 10px;
+            font-weight: 800;
         }
 
         ul a:link {
@@ -96,10 +109,51 @@
         }
 
         .subscribe img {
-            max-height: 350px;
+            max-height: 300px;
             height: 100%;
             width: 100%;
             margin-bottom: 20px;
+        }
+
+        .news {
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #f2d0ee;
+            font-size: 0;
+            clear: both;
+        }
+
+        .news h3 {
+            font-weight: 800;
+        }
+
+        .news .block {
+            vertical-align: top;
+            font-size: 16px;
+            display: inline-block;
+            width: 33.3%;
+            padding-top: 40px;
+            padding-left: 2%;
+            padding-right: 2%;
+        }
+
+        .news .block img {
+            min-height: 100px;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .news .block .text {
+            padding-left: 5%;
+            padding-right: 5%;
+            background-color: white;
+        }
+
+        .news .block .text h3 {
+            margin-top: 0;
+            padding-top: 20px;
+            font-weight: 800;
         }
 
         .join {
@@ -114,8 +168,8 @@
         }
 
         .join p {
-            line-height: 30px;
-            font-size: 20px;
+            line-height: 25px;
+            font-size: 16px;
             text-align: left
         }
 
@@ -139,7 +193,7 @@
 
         .form button {
             display: block;
-            font-size: 20px;
+            font-size: 16px;
             text-align: center;
             padding-left: 0;
             padding-right: 0;
@@ -148,21 +202,27 @@
             margin-right: auto;
             max-width: 300px;
             width: 80%;
+            font-weight: 800;
         }
 
         .form input {
-            font-size: 20px;
+            font-size: 16px;
             width: 80%;
             display: inline-block;
             margin-bottom: 20px;
         }
 
         .form label {
-            font-size: 20px;
+            font-size: 16px;
             padding-top: 10px;
             width: 20%;
             display: inline-block;
             text-align: center;
+        }
+
+        .form .error input {
+            border-color: red;
+            margin-bottom: 0;
         }
 
         .btn-primary {
@@ -201,12 +261,6 @@
         .btn-primary.load img {
             display: inline;
         }
-
-        .form .error input {
-            border-color: red;
-            margin-bottom: 0px;
-        }
-
         .err-message {
             display: none;
             font-size: 14px;
@@ -283,13 +337,17 @@
                 width: 90%;
             }
 
+            .news{
+                display:none;
+            }
+
             footer .left {
                 display: block;
                 float: none;
             }
 
             footer .right {
-                padding-top: 0px;
+                padding-top: 0;
                 display: block;
                 float: none;
                 text-align: left;
@@ -305,63 +363,63 @@
 <body>
 <header>
     <div class="width">
-        <p>FL Story</p>
+        <img src="{{ asset('img/logo.png') }}">
     </div>
 </header>
-<content>
+<div>
 
-    <h1>Подписка на газету FL Story</h1>
-    <h2>газета обо всем, что интересно современной женщине:</h2>
+    <h1>Подписка на он-лайн журнал FL Story</h1>
+    <h2>Журнал обо всем, что интересно современной женщине:</h2>
 
     <ul class="width">
         <a href="#subscribe">
             <li>
                 <img src="{{ asset('img/sections/business.svg') }}">
-                <p>Бизнес</p>
+                <h3>Бизнес</h3>
             </li>
             <li>
                 <img src="{{ asset('img/sections/art.svg') }}">
-                <p>Культура</p>
+                <h3>Культура</h3>
             </li>
             <li>
                 <img src="{{ asset('img/sections/family.svg') }}">
-                <p>Семья</p>
+                <h3>Семья</h3>
             </li>
             <li>
                 <img src="{{ asset('img/sections/history.svg') }}">
-                <p>История</p>
+                <h3>История</h3>
             </li>
             <li>
                 <img src="{{ asset('img/sections/sport.svg') }}">
-                <p>Спорт</p>
+                <h3>Спорт</h3>
             </li>
             <li>
                 <img src="{{ asset('img/sections/traveling.svg') }}">
-                <p>Путешествия</p>
+                <h3>Путешествия</h3>
             </li>
             <li>
                 <img src="{{ asset('img/sections/style.svg') }}">
-                <p>Мода</p>
+                <h3>Мода</h3>
             </li>
             <li>
                 <img src="{{ asset('img/sections/beauty.svg') }}">
-                <p>Красота</p>
+                <h3>Красота</h3>
             </li>
             <li>
                 <img src="{{ asset('img/sections/grow.svg') }}">
-                <p>Личный рост</p>
+                <h3>Личный рост</h3>
             </li>
             <li>
                 <img src="{{ asset('img/sections/actions.svg') }}">
-                <p>Значительные события</p>
+                <h3>Значительные события</h3>
             </li>
             <li>
                 <img src="{{ asset('img/sections/meet.svg') }}">
-                <p>Встречи</p>
+                <h3>Встречи</h3>
             </li>
             <li>
                 <img src="{{ asset('img/sections/handmade.svg') }}">
-                <p>Рукоделие</p>
+                <h3>Рукоделие</h3>
             </li>
         </a>
     </ul>
@@ -371,9 +429,9 @@
     <div class="subscribe width">
         <img src="{{ asset('img/computer.svg') }}">
 
-        <h2>Подписка</h2>
+        <h2>Выпуск №2</h2>
 
-        <h2>на 1 год за 500 Р</h2>
+        <h2>за {{ price }} Р</h2>
 
         <h2 class="plus">+</h2>
 
@@ -382,8 +440,58 @@
         <h2>выпуск в подарок!</h2>
     </div>
 
+    <div class="news">
+        <div class="width">
+            <h2>Новости Faberlic Life</h2>
+            <div class="block">
+                <div class="img">
+                    <img src="{{ asset('img/news/news_1.png') }}">
+                </div>
+                <div class="text">
+                    <h3>Высокие результаты</h3>
+                    <p>
+                        Подведены итоги VIP-программы с посудой, которая
+                        длилась целый год! 432 Лидера северо-западного региона
+                        стали победителями программы...
+                    </p>
+                </div>
+            </div>
+            <div class="block">
+                <div class="img">
+                    <img src="{{ asset('img/news/news_2.png') }}">
+                </div>
+                <div class="text">
+                    <h3>Мы как будто слетали в космос</h3>
+                    <p>
+                        В восемнадцатый раз эти прекрасные ощущения испытала
+                        огромная команда под названием Faberlic. Свое совершеннолетие –
+                        Международную Ассамблею Faberlic - она провела в Сочи в
+                        общественно-культурном центре «Галактика», на день ставшим
+                        космическим кораблем...
+                    </p>
+                </div>
+            </div>
+            <div class="block">
+                <div class="img">
+                    <img src="{{ asset('img/news/news_3.png') }}">
+                </div>
+                <div class="text">
+                    <h3>Бизнес-кафе</h3>
+                    <p>
+                        По совету очень красивой и умной женщины,
+                        моего преподавателя в учебном заведении,
+                        использовать в уходе за кожей лица косметику
+                        российского производителя, у меня возникла потребность
+                        в таком продукте. Дома появился каталог Faberlic...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="join">
         <div class="width">
+            <hr>
             <h2>Присоединиться к проекту</h2>
 
             <p>Друзья, присылайте свои истории успеха, информацию о предстоящих событиях в вашем регионе,
@@ -414,12 +522,13 @@
         <button type="button" class="btn btn-primary" id="subscribe"><span>Подписаться</span><img
                     src="{{ asset('img/loader.gif') }}"></button>
     </div>
-</content>
+</div>
 <footer>
     <div class="width">
         <div class="left">
-            <p>Газета "FL Story, Фаберлик Северо-запад"</p>
-            <p>Новый выпуск каждые 2 месяца</p>
+            <p>Он-лайн журнал "FL Story, Fashion Lady"</p>
+            <p>Новый выпуск каждые 3 месяца</p>
+            <p>При поддержке ДП Фаберлик Северо-запад</p>
             <p>Учредитель: Павлова Ю.А.</p>
         </div>
         <div class="right">

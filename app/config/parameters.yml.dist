@@ -14,5 +14,6 @@ parameters:
     pay.wallet: ''
     pay.price: 1.00
     mail.support: "mail@mail.com"
-    newspaper.file_path: %kernel.root_dir%/newspaper.pdf
+    newspaper.file_path: %kernel.root_dir%/magazine.pdf
+    newspaper.file_path2: %kernel.root_dir%/magazine2.pdf
 
